@@ -53,7 +53,7 @@ new Vue({
 
         getVueItems: function(page){
           this.$http.get('/customer?page='+page).then((response) => {
-            this.$set('items', response.data.data.data);
+            this.$set('items', response.data.data);
             this.$set('pagination', response.data.pagination);
           });
         },
@@ -81,6 +81,7 @@ new Vue({
           this.fillItem.name = item.name;
           this.fillItem.id = item.id;
           this.fillItem.company_name = item.company_name;
+          this.fillItem.vendor_id = item.vendor_id;
           $("#edit-item").modal('show');
       },
 

@@ -36,10 +36,11 @@ class CustomerController extends Controller
     {
         $items = Customer::latest()->paginate(5);
 
-     /*   foreach ($items as $key => $value) {
-            $items->vendor_name = getVendorName($this->vendor_name,$value->vendor_id);
+        foreach ($items as $key => $value) {
+            $customer_data[$key] = $value;
+            $customer_data[$key]['vendor_name'] = getVendorName($this->vendor_name,$value->vendor_id);
             //$items->vendor_name = 'aasa';
-        }*/
+        }
         $response = [
             'pagination' => [
                 'total' => $items->total(),
@@ -49,7 +50,7 @@ class CustomerController extends Controller
                 'from' => $items->firstItem(),
                 'to' => $items->lastItem()
             ],
-            'data' => $items
+            'data' => $customer_data
         ];
 
         return response()->json($response);
