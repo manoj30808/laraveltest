@@ -81,6 +81,7 @@ new Vue({
           this.fillItem.name = item.name;
           this.fillItem.id = item.id;
           this.fillItem.company_name = item.company_name;
+	  this.fillItem.vendor_id = item.vendor_id;
           $("#edit-item").modal('show');
       },
 
